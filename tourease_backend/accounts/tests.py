@@ -14,14 +14,15 @@ class AccountsTestCase(TestCase):
         self.user = User.objects.create_user(username="testuser", password="password123")
 #       self.client.force_authenticate(user=self.user)
 
-
-
     def test_user_creation(self):
         """Test user creation via API without authentication"""
-        # Use a fresh client instance (or clear authentication)
-        client = APIClient()
+        client = APIClient()  # Fresh client instance
         response = client.post('/api/accounts/register/', {
             'username': 'newuser',
+            'email': 'newuser@example.com',  # Ensure the email is included
             'password': 'securepass123'
         }, format='json')
+
+        print(response.status_code, response.json())  # Debugging output
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
