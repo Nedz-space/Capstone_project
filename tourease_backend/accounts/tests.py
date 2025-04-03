@@ -16,7 +16,7 @@ class AccountsTestCase(TestCase):
 
     def test_user_creation(self):
         """Test user creation via API"""
-        response = self.client.post('/api/accounts/register/', {
+        response = self.client.post('/register/', {
             'username': 'newuser',
             'password': 'securepass123'
         })

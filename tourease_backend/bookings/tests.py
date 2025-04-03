@@ -22,11 +22,11 @@ class BookingsTestCase(TestCase):
             price=50.00,
             category=self.category
         )
-        self.booking = Booking.objects.create(user=self.user, tour=self.tour, status="confirmed")
+        self.booking = Booking.objects.create(user=self.user, tour=self.tour, date="2025-06-01", number_of_people=2)
         self.client.force_authenticate(user=self.user)
 
     def test_create_booking(self):
         """Test creating a new booking"""
-        response = self.client.post('/api/bookings/', {'tour': self.tour.id, 'status': 'pending'})
+        response = self.client.post('/api/bookings/', {'tour': self.tour.id, 'date': '2025-06-01', 'number_of_people': 2})
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
