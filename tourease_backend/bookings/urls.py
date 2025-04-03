@@ -6,8 +6,8 @@ from .views import (
 )
 
 urlpatterns = [
-    path('bookings/', BookingCreateAPIView.as_view(), name='booking_create'),
-    path('bookings/list/', UserBookingsListAPIView.as_view(), name='booking_list'),
-    path('bookings/<int:pk>/', BookingDeleteAPIView.as_view(), name='booking_delete'),
+    path('', BookingCreateAPIView.as_view(), name='booking_create'),
+    path('list/', UserBookingsListAPIView.as_view(), name='booking_list'),
+    path('<int:pk>/', BookingDeleteAPIView.as_view(), name='booking_delete'),
 ]
 

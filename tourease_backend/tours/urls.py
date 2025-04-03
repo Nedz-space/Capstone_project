@@ -8,9 +8,9 @@ from .views import (
 )
 
 urlpatterns = [
-    path('tours/', TourListCreateAPIView.as_view(), name='tour_list_create'),
-    path('tours/<int:pk>/', TourRetrieveUpdateDestroyAPIView.as_view(), name='tour_detail'),
+    path('', TourListCreateAPIView.as_view(), name='tour_list_create'),
+    path('<int:pk>/', TourRetrieveUpdateDestroyAPIView.as_view(), name='tour_detail'),
     path('categories/', TourCategoryListAPIView.as_view(), name='category_list'),
-    path('tours/list/', TourListView.as_view(), name='tour-list'),
+    path('list/', TourListView.as_view(), name='tour-list'),
 ]
 
