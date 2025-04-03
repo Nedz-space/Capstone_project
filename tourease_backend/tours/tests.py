@@ -71,7 +71,7 @@ class ToursTestCase(TestCase):
         print(f"Update Tour Response: {response.status_code} {response.data}")  # Debugging
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data["price"], 120.00)
+        self.assertEqual(float(response.data["price"]), 120.00)
 
     def test_delete_tour(self):
         """Test deleting a tour (requires authentication)"""
