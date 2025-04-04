@@ -14,19 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+# Homepage view
+def home(request):
+    return HttpResponse("Welcome to the Tourease Backend API!")
 
 urlpatterns = [
     path('', home),  # Route for root URL
     path('admin/', admin.site.urls),
-    path('api/accounts/', include('accounts.urls')),  # Include accounts app URLs
+    path('api/accounts/', include('accounts.urls')),
     path('api/tours/', include('tours.urls')),
     path('api/bookings/', include('bookings.urls')),
     path('api/accounts/login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
