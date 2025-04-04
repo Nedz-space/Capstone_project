@@ -28,7 +28,10 @@ def home(request):
 
 
 urlpatterns = [
+<<<<<<< HEAD
    
+=======
+>>>>>>> f3be482e382acd541bb4e3e9505803258edd7985
     path('', home),  # Route for root URL
     path('admin/', admin.site.urls),
     path('api/accounts/', include('accounts.urls')),  # Include accounts app URLs
