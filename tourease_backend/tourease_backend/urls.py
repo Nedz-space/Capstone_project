@@ -17,12 +17,19 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
 
+def home(request):
+    return HttpResponse("Welcome to the Tourease Backend API!")
+
+
 urlpatterns = [
+   
+    path('', home),  # Route for root URL
     path('admin/', admin.site.urls),
     path('api/accounts/', include('accounts.urls')),  # Include accounts app URLs
     path('api/tours/', include('tours.urls')),
