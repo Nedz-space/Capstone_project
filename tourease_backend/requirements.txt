@@ -6,4 +6,4 @@ whitenoise>=6.6  # For static file serving
 django-cors-headers>=4.3  # If using CORS for frontend connections
 drf-yasg>=1.21  # API documentation (Swagger)
 djangorestframework-simplejwt>=5.3  # JWT Authentication
-django_filter
+django-filter
